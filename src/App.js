@@ -4,11 +4,13 @@ import Home from './components/Home';
 import Movies from './components/Movies';
 import NavBar from './components/NavBar'
 import { BookProvider } from './contexts/BookContext';
+import { MovieProvider } from './contexts/MovieContext.js';
 
 function App() {
   return (
     <div className="App">
       <BookProvider>
+        <MovieProvider>
         
       <Router>
         
@@ -19,7 +21,7 @@ function App() {
           <Route path='/movies' component={Movies}/>
         </Switch>
       </Router>
-      
+      </MovieProvider>
       </BookProvider>
 
 
