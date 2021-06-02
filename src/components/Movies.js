@@ -7,11 +7,15 @@ const Movies = () => {
     return (
         <div>
             Movie component
+            <h2>Movies</h2>
             {loading && <div>Loading...</div>}
             {error && <div>{error}</div>}
             {movies && (movies.map((item)=>(
-                <div key={item._id}><p>{item.name}</p></div>
+                <div key={item._id}>
+                    <p>{item.name}</p>
+                </div>
             )))}
+            
 
         </div>
     )
