@@ -22,8 +22,12 @@ code {
   cursor: pointer;
   background-color: rgb(135, 135, 187);
   height: 300px;
+<<<<<<< HEAD
   width: 200px;
   /* perspective: 1000px; */
+=======
+  perspective: 1000px;
+>>>>>>> 96e805bef5c4828e0a292e36878941eb71211ffe
 }
 .movie h2 {
   font-size: 25px;
@@ -44,14 +48,22 @@ code {
   transform: rotateY(180deg);
 } */
 
+<<<<<<< HEAD
 .movie-front,
+=======
+/* .movie-front,
+>>>>>>> 96e805bef5c4828e0a292e36878941eb71211ffe
 .movie-back {
   position: absolute;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+<<<<<<< HEAD
 }
+=======
+} */
+>>>>>>> 96e805bef5c4828e0a292e36878941eb71211ffe
 
 .movie-back {
   background-color: #333;
@@ -70,6 +82,7 @@ code {
   .movies {
     grid-template-columns: 1fr;
   }
+<<<<<<< HEAD
 }
 
 .movies1{
@@ -95,3 +108,6 @@ code {
   height: 300px;
   margin: 10px;
 }
+=======
+}
+>>>>>>> 96e805bef5c4828e0a292e36878941eb71211ffe
