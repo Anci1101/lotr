@@ -13,28 +13,28 @@ const Movies = () => {
     const handleMovieDetails = (id) => {
         console.log('anabanaan');
         const filteredMovie = movies.filter((item)=> id === item._id)
-        // console.log(filteredMovie[0]);
+        console.log(filteredMovie[0]);
         setSelectedMovie(filteredMovie[0])
         setShowMovieDetails(true)
     }
 
 
     return (
-        <div>
-            Movie component
-            <h2>Movies</h2>
+        <div className='movies'>
             {loading && <div>Loading...</div>}
             {error && <div>{error}</div>}
             {movies && (movies.map((movie)=>(
-                <div key={movie._id}>
+                <div  className='movie' key={movie._id}>
                     <MovieList 
                         movieId={movie._id}  
                         name={movie.name}
                         handleMovieDetails={handleMovieDetails}
+                        selectedMovie={selectedMovie}
+                        showMovieDetails={showMovieDetails}
                     />
                 </div>
             )))}
-            <div>
+            <div className='movie-back'>
                 {showMovieDetails && (<div>
                     <MovieDetails selectedMovie={selectedMovie}/>
                     </div>)}
