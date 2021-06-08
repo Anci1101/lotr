@@ -20,6 +20,11 @@ const NavBar = () => {
                         Movies
                     </Link>
                 </li>
+                <li>
+                    <Link to='/charactersList'>
+                        Characters
+                    </Link>
+                </li>
             </ul>
         </div>
     )
