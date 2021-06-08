@@ -1,4 +1,5 @@
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import BookChapters from './components/BookChapters';
 import Books from './components/Books';
 import CharactersList from './components/CharactersList';
 import CharactersQoutes from './components/CharactersQoutes';
@@ -20,6 +21,7 @@ function App() {
         <Switch>
           <Route path='/' component={Home} exact/>
           <Route path='/books' component={Books}/>
+          <Route path='/book/:id' component={BookChapters}/>
           <Route path='/movies' component={Movies}/>
           <Route path='/charactersList' component={CharactersList}/>
           <Route path='characters/:id' component={CharactersQoutes}/>
