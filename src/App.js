@@ -8,27 +8,50 @@ import Movies from './components/Movies';
 import NavBar from './components/NavBar'
 import { BookProvider } from './contexts/BookContext';
 import { MovieProvider } from './contexts/MovieContext.js';
+import {createMuiTheme, ThemeProvider} from '@material-ui/core'
+import { purple } from '@material-ui/core/colors';
+import Layout from './components/Layout';
+
+const theme = createMuiTheme({
+  palette:{
+    primary:{
+      main: '#c2a608'
+    },
+    secondary: purple
+  },
+  typography:{
+    fontFamily: 'Stint Ultra Condensed',
+    fontWeightLight: 400,
+    fontWeightRegular: 500,
+    fontWeightMedium: 600,
+    fontWeightBold: 700,
+  },
+ 
+})
 
 function App() {
   return (
     <div className="App">
-      <BookProvider>
-        <MovieProvider>
-        
-      <Router>
-        
-        <NavBar/>
-        <Switch>
-          <Route path='/' component={Home} exact/>
-          <Route path='/books' component={Books}/>
-          <Route path='/book/:id' component={BookChapters}/>
-          <Route path='/movies' component={Movies}/>
-          <Route path='/charactersList' component={CharactersList}/>
-          <Route path='characters/:id' component={CharactersQoutes}/>
-        </Switch>
-      </Router>
-      </MovieProvider>
-      </BookProvider>
+      <ThemeProvider theme ={theme}>
+        <BookProvider>
+          <MovieProvider>
+            <Router>
+              <Layout>
+              {/* <NavBar/> */}
+              <Switch>
+                <Route path='/' component={Home} exact/>
+                <Route path='/books' component={Books}/>
+                <Route path='/book/:id' component={BookChapters}/>
+                <Route path='/movies' component={Movies}/>
+                <Route path='/charactersList' component={CharactersList}/>
+                <Route path='/character/:id' component={CharactersQoutes}/>
+              </Switch>
+              </Layout>
+            </Router>
+          </MovieProvider>
+        </BookProvider>
+      </ThemeProvider>
+      
 
 
     </div>

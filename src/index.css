@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -56,7 +57,10 @@ code {
   background-color: #333;
   color: white;
   padding: 20px;
-  transform: rotateY(180deg);
+  width: 300px;
+  position: absolute;
+  margin-top: 10px;
+  /* transform: rotateY(180deg); */
 }
 
 @media (max-width: 800px) {

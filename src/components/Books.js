@@ -1,28 +1,30 @@
-import { Link } from '@material-ui/core';
+import { Container, Grid, Link, Paper, Typography } from '@material-ui/core';
 import React, { useContext } from 'react'
 import { BookContext } from '../contexts/BookContext'
 import BookList from './BookList';
+
 
 const Books = () => {
     const {books, loading, error} = useContext(BookContext)
     console.log(books, 'data');
     return (
-        <div>
-            Books component
+        <Container>
+            <Typography variant='h4' color='primary'>
+                Books
+            </Typography>
             {loading && <div>Loading...</div>}
             {error && <div>{error}</div>}
+            <Grid container  spacing={3} style={{marginTop:10}} >
             {books && (books.map((item)=>(
-                // <Link to={`/book/${item._id}`}>
-                //     <div key={item._id}>
-                //         <p>{item.name}</p>
-                //     </div>
-                // </Link>
-                <div key={item._id}>
-                    <BookList name={item.name} id={item._id}/>
-                </div>
+                <Grid item key={item._id} xs={12} md={6} lg={4}>
+                    <Paper>
+                        <BookList name={item.name} id={item._id}/>
+                    </Paper>
+                </Grid>   
             )))}
+            </Grid>
             
-        </div>
+        </Container>
     )
 }
 
