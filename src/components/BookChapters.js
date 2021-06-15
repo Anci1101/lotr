@@ -2,11 +2,10 @@ import React from 'react'
 
 
 const BookChapters = ({chaptersOfOneBook}) => {
-   
     return (
         <div>
             {chaptersOfOneBook.map((oneChapter)=>(
-                <p>{oneChapter}</p>
+                <p key={oneChapter}>{oneChapter}</p>
             ))}
         </div>
     )
