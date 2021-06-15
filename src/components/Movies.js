@@ -9,13 +9,11 @@ import { Container, Typography } from '@material-ui/core';
 
 const Movies = () => {
     const {movies, loading, error} = useContext(MovieContext)
-    //console.log(movies, 'movies');
 
     const [selectedMovie, setSelectedMovie] = useState({})
     const [showMovieDetails, setShowMovieDetails] = useState(false)
 
     const handleMovieDetails = (id) => {
-        //console.log('anabanaan');
         const filteredMovie = movies.filter((item)=> id === item._id)
         console.log(filteredMovie[0]);
         setSelectedMovie(filteredMovie[0])
@@ -29,6 +27,7 @@ const Movies = () => {
             <Typography variant='h4' color='primary'>
                 Movies
             </Typography>
+
             {loading && <div>Loading...</div>}
             {error && <div>{error}</div>}
             <Grid container  spacing={3} style={{marginBottom:'20px', marginTop: 10}}>
@@ -40,7 +39,6 @@ const Movies = () => {
                                 movieId={movie._id}  
                                 name={movie.name}
                                 handleMovieDetails={handleMovieDetails}
-                            
                             />
                         </Paper>
                     </Grid>
@@ -49,11 +47,10 @@ const Movies = () => {
             
             
             <Grid container>
-                
                 {showMovieDetails && (<Grid item xs={12} md={6} lg={4}>
-                    <Paper>
-                        <MovieDetails selectedMovie={selectedMovie}/>
-                    </Paper>
+                        <Paper>
+                            <MovieDetails selectedMovie={selectedMovie}/>
+                        </Paper>
                     </Grid>)}
             </Grid>
             

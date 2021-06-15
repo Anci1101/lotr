@@ -2,7 +2,6 @@ import React from 'react'
 
 
 const BookChapters = ({chaptersOfOneBook}) => {
-    // console.log(chaptersOfOneBook);
    
     return (
         <div>

@@ -13,8 +13,7 @@ const useStyles = makeStyles({
 const CharactersList = () => {
 
     const classes = useStyles()
-    const {data: characters, loading, error} = useFetch('https://the-one-api.dev/v2/character?limit=100')
-    console.log(characters, 'char');
+    const {data: characters} = useFetch('https://the-one-api.dev/v2/character?limit=100')
     const [raceOfCharacters, setRaceOfCharacters] = useState(characters)
 
     const handleCharactersRace = (race) =>{
@@ -26,9 +25,6 @@ const CharactersList = () => {
     return (
         <Container>
             <Typography variant='h4' color='primary'>Characters</Typography>
-            {/* {characters.map((character)=>
-                <div key={character._id}>{character.race}</div>
-            )} */}
             <Grid container spacing={3} style={{marginTop:10}}>
                 <Grid item>
                     <Button className={classes.btn} variant='outlined' onClick={()=> handleCharactersRace('Human')}>Human</Button>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import { Drawer, List, ListItem, ListItemIcon, ListItemText, Typography } from '@material-ui/core';
-import { HomeOutlined, LibraryBooksOutlined, MovieCreationOutlined, PersonPinCircleOutlined, SubjectOutlined } from '@material-ui/icons';
+import { HomeOutlined, LibraryBooksOutlined, MovieCreationOutlined } from '@material-ui/icons';
 import PersonIcon from '@material-ui/icons/Person';
 import { useHistory, useLocation } from 'react-router';
 
@@ -9,7 +9,7 @@ const drawerWidth = 240
 
 const useStyles = makeStyles({
     page: {
-        background: '#f7eed5',
+        
         width: '100%'
     },
     drawer:{
@@ -19,7 +19,9 @@ const useStyles = makeStyles({
         width: drawerWidth
     },
     root: {
-        display: 'flex'
+        background: '#f7eed5',
+        display: 'flex',
+        height: '100vh'
     },
     active: {
         background: '#f7eed5'
@@ -73,7 +75,7 @@ const Layout = ({children}) => {
                         <ListItem key={item.text}
                                 button
                                 onClick={()=> history.push(item.path)}
-                                className={location.pathname == item.path ? classes.active : null}
+                                className={location.pathname === item.path ? classes.active : null}
                                 >
                             <ListItemIcon>{item.icon}</ListItemIcon>
                             <ListItemText primary={item.text}/>

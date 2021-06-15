@@ -20,8 +20,8 @@ const useStyles = makeStyles({
 const MovieDetails = ({selectedMovie}) => {
     const classes = useStyles();
 
-    const {data: movieQ, loading, error} = useFetch(`https://the-one-api.dev/v2/movie/` + selectedMovie._id + `/quote`)
-    //console.log(movieQ, 'movieQ');
+    const {data: movieQ} = useFetch(`https://the-one-api.dev/v2/movie/` + selectedMovie._id + `/quote`)
+    
 
     const [quotesOfMovie, setQuotesOfMovie] = useState({})
     const [showMovieQuotes, setShowMovieQuotes] = useState(false)
@@ -36,6 +36,10 @@ const MovieDetails = ({selectedMovie}) => {
         setShowMovieQuotes(true)
     }
 
+    const closeQuotes = () => {
+        setShowMovieQuotes(false)
+    }
+
     
     
 
@@ -44,26 +48,33 @@ const MovieDetails = ({selectedMovie}) => {
             <CardHeader title={selectedMovie.name}/>
             <CardContent>
                 <Typography>
-                Academy award nominations: {selectedMovie.academyAwardNominations}
+                    Academy award nominations: {selectedMovie.academyAwardNominations}
                 </Typography>
                 <Typography>
-                Academy award wins: {selectedMovie.academyAwardWins}
+                    Academy award wins: {selectedMovie.academyAwardWins}
                 </Typography>
                 <Typography>
-                Runtime: {selectedMovie.runtimeInMinutes} min
+                    Runtime: {selectedMovie.runtimeInMinutes} min
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button variant="outlined" size="small" onClick={()=> getMovieQuotes(selectedMovie._id)}>
-                movie quotes
+                {showMovieQuotes ? (
+                    <Button variant="outlined" size="small" onClick={()=> closeQuotes(selectedMovie._id)}>
+                    close
                 </Button>
+                ):(
+                    <Button variant="outlined" size="small" onClick={()=> getMovieQuotes(selectedMovie._id)}>
+                    movie quotes
+                </Button>
+                )}
+
+                
             </CardActions>
             
             <div>
                 {showMovieQuotes && (
                     <div><MovieQuotes quotesOfMovie={quotesOfMovie}/></div>
                 )}
-
             </div>
         </Card>
     )

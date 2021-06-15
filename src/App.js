@@ -1,16 +1,16 @@
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import BookChapters from './components/BookChapters';
 import Books from './components/Books';
 import CharactersList from './components/CharactersList';
 import CharactersQoutes from './components/CharactersQoutes';
 import Home from './components/Home';
 import Movies from './components/Movies';
-import NavBar from './components/NavBar'
 import { BookProvider } from './contexts/BookContext';
 import { MovieProvider } from './contexts/MovieContext.js';
-import {createMuiTheme, ThemeProvider} from '@material-ui/core'
+import {createMuiTheme, ThemeProvider} from '@material-ui/core';
 import { purple } from '@material-ui/core/colors';
 import Layout from './components/Layout';
+
 
 const theme = createMuiTheme({
   palette:{
@@ -31,7 +31,7 @@ const theme = createMuiTheme({
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <ThemeProvider theme ={theme}>
         <BookProvider>
           <MovieProvider>
@@ -44,7 +44,7 @@ function App() {
                 <Route path='/book/:id' component={BookChapters}/>
                 <Route path='/movies' component={Movies}/>
                 <Route path='/charactersList' component={CharactersList}/>
-                <Route path='/character/:id' component={CharactersQoutes}/>
+                <Route path='/character/:id/quote' component={CharactersQoutes}/>
               </Switch>
               </Layout>
             </Router>
